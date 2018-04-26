@@ -4,6 +4,7 @@
   "description": "A ridiculously forgiving Html Parser for use within JavaScript / TypeScript projects.",
   "author": "Crummm",
   "scripts": {
+    "build": "tsc --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
