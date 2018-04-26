@@ -1,0 +1,27 @@
+{
+  "name": "crummm-html-parser",
+  "version": "0.0.0",
+  "description": "A ridiculously forgiving Html Parser for use within JavaScript / TypeScript projects.",
+  "author": "Crummm",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crummm/crummm-html-parser.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "html",
+    "parser",
+    "parse",
+    "javascript",
+    "js",
+    "typescript"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^2.8.3"
+  }
+}
