@@ -1,15 +1,15 @@
-# crummm-html-parser [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+# mmm-html-parser [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 A ridiculously forgiving Html Parser for use within JavaScript / TypeScript projects.
 
 ## Installation
 
 ```bash
-$ yarn add crummm-html-parser
+$ yarn add mmm-html-parser
 ```
 
 ```bash
-$ npm install --save-dev crummm-html-parser
+$ npm install --save-dev mmm-html-parser
 ```
 
 
