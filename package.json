@@ -5,6 +5,7 @@
   "author": "crummm",
   "scripts": {
     "build": "tsc --project tsconfig.json",
+    "prerelease": "yarn test && yarn build",
     "test": "jest"
   },
   "repository": {
