@@ -14,7 +14,8 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "strictNullChecks": false
   },
   "include": [
     "src/**/*.ts",
