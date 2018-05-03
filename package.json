@@ -1,6 +1,6 @@
 {
   "name": "mmm-html-parser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A ridiculously forgiving Html Parser for use within JavaScript / TypeScript projects.",
   "author": "crummm",
   "scripts": {
