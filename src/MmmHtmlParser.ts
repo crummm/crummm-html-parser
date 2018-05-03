@@ -187,7 +187,14 @@ export class MmmHtmlParser {
 
     root.tagsTotalCount = tagResultsLength;
 
-    console.log('tagResults: ', tagResults);
+    // if there's text before the first tag (e.g. text or whitespace if options 'trimRootWhitespace' is set to false)
+    if(tagResultsLength > 0 && tagResults[0].contentIndexStart !== 0) {
+      text = this._processRawText(markup, 0, tagResults[0].contentIndexStart, root, options);
+    }
+    // else if there's text even though there are no tags
+    else if(tagResultsLength === 0 && markup.length > 0) {
+      text = this._processRawText(markup, 0, markup.length, root, options);
+    }
 
     // loop over the regex search results again
     // note: this time, we have the full list of tags and can look forward as needed
@@ -196,11 +203,6 @@ export class MmmHtmlParser {
       nextTag = i + 1 < tagResultsLength ? tagResults[i + 1] : undefined;
       lastOpenTag = remainingOpenTags.length > 0 ? remainingOpenTags[remainingOpenTags.length - 1] : undefined;
       // console.log(tag.isOpeningTag ? '+' : '-', ' tag: ', tag.tagName, ' &tag: ', tag.content);
-
-      // if this is the first tag being processed *AND* there's content before it (e.g. text or whitespace if options 'trimRootWhitespace' is set to false)
-      if(i === 0 && tag.contentIndexStart !== 0) {
-        text = this._processRawText(markup, 0, tag.contentIndexStart, root, options);
-      }
 
       // if open tag and ignore mode is disabled
       if(tag.isOpeningTag === true && ignoreAllTags === false) {
@@ -280,6 +282,11 @@ export class MmmHtmlParser {
       }
 
       i++;
+    }
+
+    // if there's text after the last tag (e.g. text or whitespace if options 'trimRootWhitespace' is set to false)
+    if(tagResultsLength > 0 && tagResults[tagResults.length - 1].contentIndexEnd < markup.length) {
+      text = this._processRawText(markup, tagResults[tagResults.length - 1].contentIndexEnd, markup.length, root, options);
     }
 
     return root;

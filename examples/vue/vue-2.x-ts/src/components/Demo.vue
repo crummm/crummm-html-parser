@@ -20,6 +20,8 @@
   import TreeNode from './TreeNode.vue';
   import { MmmHtmlParser } from '../../../../../dist/index';
   import { MmmHtmlParserResultI } from "../../../../../src";
+  import { MmmHtmlParserResultTagI } from "../../../../../src/MmmHtmlParserResultTagI";
+  import { MmmHtmlParserResultRootI } from "../../../../../src/MmmHtmlParserResultRootI";
 
   export default Vue.extend({
     name: 'Demo',
@@ -28,15 +30,29 @@
     },
     created() {
       console.log('----- created -----');
-      MmmHtmlParser.options.trimRootWhitespace = true;
-      MmmHtmlParser.options.generateAdvancedObjects = true;
-      const root = new MmmHtmlParser().start(this.markup);
-      console.log('root.tagsTotalCount: ', root.tagsTotalCount);
-      console.log('root.tagsIgnoredCount: ', root.tagsIgnoredCount);
-      console.log('root.tagsOpenedCount: ', root.tagsOpenedCount);
-      console.log('- root.tagsClosedCount: ', root.tagsClosedCount);
-      console.log('= tagsRemainingCount: ', (root.tagsOpenedCount - root.tagsClosedCount));
-      console[root.tagsErrorCount > 0 ? 'warn' : 'log']('! tagsErrorCount', root.tagsErrorCount);
+      // MmmHtmlParser.options.trimRootWhitespace = true;
+      // MmmHtmlParser.options.generateAdvancedObjects = true;
+      // const root = new MmmHtmlParser().start(this.markup);
+      // console.log('root.tagsTotalCount: ', root.tagsTotalCount);
+      // console.log('root.tagsIgnoredCount: ', root.tagsIgnoredCount);
+      // console.log('root.tagsOpenedCount: ', root.tagsOpenedCount);
+      // console.log('- root.tagsClosedCount: ', root.tagsClosedCount);
+      // console.log('= tagsRemainingCount: ', (root.tagsOpenedCount - root.tagsClosedCount));
+      // console[root.tagsErrorCount > 0 ? 'warn' : 'log']('! tagsErrorCount', root.tagsErrorCount);
+      // this.treeData = root;
+
+      let markdown: string =
+        `
+        text before
+        <div>
+          <span>hello</span>
+          <span>world</span>
+        </div>
+        text after
+      `
+      ;
+      let parser: MmmHtmlParser = new MmmHtmlParser();
+      let root: MmmHtmlParserResultRootI = parser.start(markdown);
       this.treeData = root;
     },
     data() {
