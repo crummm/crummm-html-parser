@@ -9,6 +9,7 @@ export declare class MmmHtmlParser {
     static readonly instance: MmmHtmlParser;
     static options: MmmHtmlParserOptions;
     protected static _idCount: number;
+    static start(markup: string, options?: MmmHtmlParserOptions): MmmHtmlParserResultRootI;
     protected _emitter: CrummmEmitterSystemInstance;
     constructor();
     onStart(listener: () => {}): void;

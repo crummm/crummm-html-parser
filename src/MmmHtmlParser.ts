@@ -18,6 +18,10 @@ export class MmmHtmlParser {
   public static options: MmmHtmlParserOptions = new MmmHtmlParserOptions();
   protected static _idCount: number = 0;
 
+  public static start(markup: string, options?: MmmHtmlParserOptions): MmmHtmlParserResultRootI {
+    return this.instance.start.apply(this.instance, arguments);
+  }
+
   //
   // INSTANCE
   //

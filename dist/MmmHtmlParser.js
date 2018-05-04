@@ -16,6 +16,9 @@ var MmmHtmlParser = (function () {
         enumerable: true,
         configurable: true
     });
+    MmmHtmlParser.start = function (markup, options) {
+        return this.instance.start.apply(this.instance, arguments);
+    };
     MmmHtmlParser.prototype.onStart = function (listener) {
         this._emitter.on('start', listener);
     };
